@@ -1,0 +1,59 @@
+# User friendly averages - Python 3.7.0
+
+import time
+global total
+numbersList = []
+
+# Sub-Functions #
+def welcome():
+    print("Welcome!")
+    print("\nInstructions: ")
+    print("1. Input the amount of numbers you want to find the average for.")
+    print("2. Input all of your numbers, the program will loop to the amount of numbers you specify")
+    print("3. Wait for the average to be printed.")
+    print("4. To save the numbers, wait until the end and then select 'Save'")
+
+
+def totalNumbers():
+    amount = int(input("How many numbers: "))
+    return amount
+
+def number():
+    number = int(input("Number: "))
+    numbersList.append(number)
+    return number
+
+def calculation():
+    amountOfNumbers = totalNumbers()
+    total = 0
+    for i in range(1,amountOfNumbers+1):
+        num = number()
+        total = total+num
+    average = total / amountOfNumbers
+    print("\nAverage: ",average)
+    save()
+
+def save():
+    print("\nTo save numbers and mean, enter 'Save'. To cancel, enter 'Cancel'")
+    save = input("Want to save: ")
+    if save == "save":
+        print("Saving")
+        numbers = open("numbers.txt", "w")
+        numbers.write(str(numbersList))
+    elif save == "cancel":
+        print("Cancelling")
+    else:
+        print("Invalid input, cancelling automatically")
+        
+def lastMessage():
+    print("\nThank you for participating.")
+    print("If you saved your numbers, head over to 'numbers.txt', it will be located in the same location as this program.")
+    time.sleep(3)
+    exit()
+
+def program():
+    welcome()
+    calculation()
+    lastMessage()
+
+program()

@@ -1,0 +1,35 @@
+# Commission System
+
+import time
+
+# Sub-Functions #
+def startCommission():
+    confirm = input("If you'd like to start the commission, please press enter: ")
+    if confirm == "":
+        commission()
+    else:
+        print("Invalid input 1/2")
+        confirm = input("If you'd like to start the commission, please press enter: ")
+        if confirm == "":
+            commission()
+        else:
+            print("Invalid input 2/2")
+            time.sleep(2)
+            exit()
+
+def commission():
+    print("Welcome to the commission system. Please fill in each question.")
+    role = input("Role name: ")
+    budget = input("Budget in USD: ")
+    timeframe = input("Timeframe (Days / Weeks - Specify): ")
+    desc = input("Description of your product: ")
+    print("\nCommission details:")
+    print("Role: @"+role)
+    print("Budget: $"+budget)
+    print("Timeframe: "+timeframe)
+    print("Description: "+desc)
+    print("\nCommission posted. Please wait for a freelancers response.")
+
+# Main Program #
+
+startCommission()

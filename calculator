@@ -1,0 +1,23 @@
+# Calculator - Python 3.7.0
+
+# Sub-Functions #
+def calculator():
+    num1 = int(input("First number: "))
+    num2 = int(input("Second number: "))
+    operator = input("Operator: ")
+    if operator == "+":
+        ans = num1+num2
+        print(num1,"+",num2,"=",ans)
+    elif operator == "-":
+        ans = num1-num2
+        print(num1,"-",num2,"=",ans)
+    elif operator == "/":
+        ans = num1/num2
+        print(num1,"/",num2,"=",ans)
+    elif operator == "*":
+        ans = num1*num2
+        print(num1,"*",num2,"=",ans)
+    else:
+        print("Invalid operator input.")
+
+calculator()

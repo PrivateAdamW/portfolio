@@ -1,9 +1,12 @@
 # Calculator - Python 3.7.0
 
+import math
+
 # Sub-Functions #
 def calculator():
     num1 = int(input("First number: "))
     num2 = int(input("Second number: "))
+    print("Operators: + (addition), - (subtraction), / (division), * (multiplication), sr (square root)")
     operator = input("Operator: ")
     if operator == "+":
         ans = num1+num2
@@ -17,6 +20,11 @@ def calculator():
     elif operator == "*":
         ans = num1*num2
         print(num1,"*",num2,"=",ans)
+    elif operator == "sr":
+        ans1 = math.sqrt(num1)
+        ans2 = math.sqrt(num2)
+        print("Square root of "+str(num1)+" is "+str(ans1))
+        print("Square root of "+str(num2)+" is "+str(ans2))
     else:
         print("Invalid operator input.")
 

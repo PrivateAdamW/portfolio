@@ -1,0 +1,58 @@
+# 5 round Dice Game - Python 3.7.0
+
+import random as r
+
+def diceroll():
+    r1 = r.randint(1,6)
+    r2 = r.randint(1,6)
+    fs = r1+r2
+    if (fs % 2) == 0:
+        fs = fs+10
+    else:
+        if fs > 5:
+            fs = fs-5
+        else:
+            fs = 0
+    return fs
+
+def game():
+    p1final = 0
+    p2final = 0
+    for i in range(0,5):
+        p1 = diceroll()
+        p1final  = p1final+p1
+        p2 = diceroll()
+        p2final = p2final+p2
+    if p1final > p2final:
+        ws = p1final
+        return p1final, p2final, ws
+    elif p1final < p2final:
+        ws = p2final
+        return p1final, p2final, ws
+    else:
+        while winner == False:
+            p1t = r.randint(1,6)
+            p2t = r.randint(1,6)
+            if p1t > p2t:
+                ws = p1final
+                winner == True
+                return p1final, p2final, ws
+            elif p1t < p2t:
+                ws = p2final
+                winner = True
+                return p1final, p2final, ws
+            else:
+                winner == False
+
+def final():
+    p1, p2, winner = game()
+    if p1 == winner:
+        print("Player 1 has won!")
+        print("Winner Final score:",winner)
+        print("Runner Up Final score:",p2)
+    else:
+        print("Player 2 has won!")
+        print("Final score:",winner)
+        print("Runner Up Final score:",p1)
+
+final()
